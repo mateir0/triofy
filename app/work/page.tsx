@@ -15,8 +15,8 @@ export default function WorkPage() {
     <>
       <SectionWrapper background="default" className="pt-32">
         <div className="text-center">
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-4">Our Work</h1>
-          <p className="text-[#A7B0B8] text-xl max-w-2xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4">Our Work</h1>
+          <p className="text-[#A7B0B8] text-lg sm:text-xl max-w-2xl mx-auto">
             Real brands. Real results. See how we&apos;ve helped ambitious companies grow.
           </p>
         </div>

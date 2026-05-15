@@ -36,12 +36,12 @@ export default function Hero({ content, SceneComponent }: HeroProps) {
             <span className="w-2 h-2 bg-[#F4C542] rounded-full animate-pulse" />
             Now taking new clients for Q3 2025
           </motion.div>
-          <motion.h1
+            <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6"
-          >
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6"
+            >
             {content.heading.split(" ").map((word, i) =>
               word === "Brands" ? (
                 <span key={i} className="text-[#F4C542]"> {word} </span>

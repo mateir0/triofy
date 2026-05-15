@@ -79,7 +79,7 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
       <div className="flex items-center justify-center gap-4 mt-8">
         <button
           onClick={prev}
-          className="p-2 rounded-full border border-white/20 text-[#A7B0B8] hover:text-white hover:border-[#F4C542] transition-colors"
+          className="p-2 rounded-full border border-white/20 text-[#A7B0B8] hover:text-white hover:border-[#F4C542] transition-colors min-h-11 min-w-11 inline-flex items-center justify-center"
           aria-label="Previous testimonial"
         >
           <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -94,16 +94,18 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
                 setDirection(i > current ? 1 : -1);
                 setCurrent(i);
               }}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-[#F4C542] w-6" : "bg-white/30 w-2"
+              className={`rounded-full transition-all duration-300 min-h-11 min-w-11 inline-flex items-center justify-center ${
+                i === current ? "bg-[#F4C542]/15" : "bg-transparent"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
-            />
+            >
+              <span className={`h-2 rounded-full transition-all duration-300 ${i === current ? "bg-[#F4C542] w-6" : "bg-white/30 w-2"}`} />
+            </button>
           ))}
         </div>
         <button
           onClick={next}
-          className="p-2 rounded-full border border-white/20 text-[#A7B0B8] hover:text-white hover:border-[#F4C542] transition-colors"
+          className="p-2 rounded-full border border-white/20 text-[#A7B0B8] hover:text-white hover:border-[#F4C542] transition-colors min-h-11 min-w-11 inline-flex items-center justify-center"
           aria-label="Next testimonial"
         >
           <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

@@ -1,11 +1,30 @@
 export const aboutContent = {
   story: [
-    "Triofy was founded in 2020 by three friends who believed that great marketing should be accessible to every ambitious brand — not just Fortune 500 companies.",
-    "We grew from a scrappy three-person operation to a full-service agency by doing one thing exceptionally well: delivering measurable results. Every campaign, every project, every relationship is built on the foundation of transparent performance.",
-    "Today, Triofy is home to a diverse team of strategists, creatives, and technologists united by a single mission: to grow the brands that are shaping the future.",
+    "Triofy was founded in 2020 by three operators who believed high-quality digital execution should be accessible to growth-stage businesses, not just enterprise brands.",
+    "We run as a managed expert network: a lean core team leads strategy and quality, while vetted specialists are assembled based on your goals, timeline, and scope.",
+    "This model gives clients senior-level thinking, specialist depth, and reliable delivery without the overhead of a large traditional agency.",
   ],
   mission:
-    "To democratize world-class marketing and help ambitious brands punch above their weight.",
+    "To help ambitious businesses grow faster with clear strategy, expert execution, and outcomes they can measure.",
+  vision:
+    "To become the most trusted growth partner for modern businesses by combining core leadership with a managed global expert network.",
+  operatingModel: {
+    heading: "How Triofy Operates",
+    description:
+      "Every engagement is led by our core team and delivered through a curated partner network. You get one accountable team, one strategy, and specialists matched to each phase of work.",
+    pillars: [
+      "Core strategy leadership and project ownership",
+      "Specialist partners selected by industry and task",
+      "Transparent reporting and weekly progress loops",
+    ],
+  },
+  teamIdentity: {
+    heading: "Core Team + Trusted Partners",
+    description:
+      "Our founders and in-house leads drive alignment while our partner bench extends capability across development, design, marketing, and production.",
+  },
+  trustNarrative:
+    "Clients trust Triofy because we communicate clearly, document decisions, and tie every sprint to outcomes. We don't hide behind vanity metrics — we show what changed, why it changed, and what to do next.",
   values: [
     {
       title: "Results First",

@@ -10,11 +10,12 @@ interface ServicesPageClientProps {
 }
 
 const categories: ServiceCategory[] = [
-  "Branding",
-  "Performance Marketing",
-  "Web Design & Development",
-  "Content & Creative",
-  "Automation / Funnel Ops",
+  "Web Development",
+  "Graphic Design",
+  "Game Development",
+  "Social Media Management / Marketing",
+  "UI/UX Design",
+  "Custom Solutions",
 ];
 
 export default function ServicesPageClient({ services }: ServicesPageClientProps) {
@@ -31,7 +32,7 @@ export default function ServicesPageClient({ services }: ServicesPageClientProps
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           <button
             onClick={() => setActiveCategory("All")}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-5 py-2 rounded-full text-sm font-medium transition-all min-h-11 ${
               activeCategory === "All"
                 ? "bg-[#F4C542] text-[#0E1A24]"
                 : "border border-white/20 text-[#A7B0B8] hover:border-[#F4C542]/50 hover:text-white"
@@ -41,13 +42,13 @@ export default function ServicesPageClient({ services }: ServicesPageClientProps
           </button>
           {categories.map((cat) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === cat
-                  ? "bg-[#F4C542] text-[#0E1A24]"
-                  : "border border-white/20 text-[#A7B0B8] hover:border-[#F4C542]/50 hover:text-white"
-              }`}
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all min-h-11 ${
+                  activeCategory === cat
+                    ? "bg-[#F4C542] text-[#0E1A24]"
+                    : "border border-white/20 text-[#A7B0B8] hover:border-[#F4C542]/50 hover:text-white"
+                }`}
             >
               {cat}
             </button>

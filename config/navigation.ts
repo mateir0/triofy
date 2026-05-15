@@ -20,11 +20,12 @@ export const footerNav = {
     {
       title: "Services",
       links: [
-        { label: "Branding", href: "/services#branding" },
-        { label: "Performance Marketing", href: "/services#performance" },
-        { label: "Web Design", href: "/services#web" },
-        { label: "Content & Creative", href: "/services#content" },
-        { label: "Automation", href: "/services#automation" },
+        { label: "Web Development", href: "/services#web-development" },
+        { label: "Graphic Design", href: "/services#graphic-design" },
+        { label: "Game Development", href: "/services#game-development" },
+        { label: "Social Media Marketing", href: "/services#social-media-management" },
+        { label: "UI/UX Design", href: "/services#ui-ux-design" },
+        { label: "Custom Solutions", href: "/services#custom-solutions" },
       ],
     },
     {

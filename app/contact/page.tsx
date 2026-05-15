@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { contactContent } from "@/content/contact";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ContactForm from "@/components/ui/ContactForm";
+import Button from "@/components/ui/Button";
 import { createMetadata } from "@/lib/metadata";
 import { site } from "@/config/site";
 
@@ -16,10 +17,10 @@ export default function ContactPage() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6">
               {contactContent.heading}
             </h1>
-            <p className="text-[#A7B0B8] text-lg mb-12">{contactContent.subheading}</p>
+            <p className="text-[#A7B0B8] text-base sm:text-lg mb-12">{contactContent.subheading}</p>
 
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -48,10 +49,25 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
+              <div className="rounded-xl border border-white/10 bg-[#132331] p-4">
+                <p className="text-sm text-[#A7B0B8] mb-2">
+                  <span className="text-white font-semibold">Response time:</span> usually within 24 business hours.
+                </p>
+                <p className="text-sm text-[#A7B0B8]">
+                  <span className="text-white font-semibold">CRM integration:</span> integration coming soon.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Button href="/contact" variant="primary">Get a Quote</Button>
+                <Button href={site.whatsapp} variant="secondary">WhatsApp Us</Button>
+              </div>
             </div>
           </div>
 
           <div className="bg-[#132331] rounded-2xl p-8 border border-white/10">
+            <p className="text-xs text-[#A7B0B8] mb-4">
+              Lead capture is active. Email delivery integration endpoint placeholder is ready for provider wiring.
+            </p>
             <ContactForm />
           </div>
         </div>

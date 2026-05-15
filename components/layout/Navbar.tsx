@@ -49,12 +49,12 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-4">
             <Button href="/contact" variant="primary" size="sm">
-              Start a Project
+              Get a Quote
             </Button>
           </div>
 
           <button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-white min-w-11 min-h-11 inline-flex items-center justify-center"
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >

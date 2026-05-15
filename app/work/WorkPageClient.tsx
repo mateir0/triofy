@@ -24,13 +24,13 @@ export default function WorkPageClient({ studies }: WorkPageClientProps) {
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((cat) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === cat
-                  ? "bg-[#F4C542] text-[#0E1A24]"
-                  : "border border-white/20 text-[#A7B0B8] hover:border-[#F4C542]/50 hover:text-white"
-              }`}
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all min-h-11 ${
+                  activeCategory === cat
+                    ? "bg-[#F4C542] text-[#0E1A24]"
+                    : "border border-white/20 text-[#A7B0B8] hover:border-[#F4C542]/50 hover:text-white"
+                }`}
             >
               {cat}
             </button>
