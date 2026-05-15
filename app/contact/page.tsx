@@ -58,7 +58,7 @@ export default function ContactPage() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button href="/contact" variant="primary">Get a Quote</Button>
+                <Button href={`mailto:${site.email}?subject=Get%20a%20Quote`} variant="primary">Get a Quote</Button>
                 <Button href={site.whatsapp} variant="secondary">WhatsApp Us</Button>
               </div>
             </div>

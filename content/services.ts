@@ -64,7 +64,7 @@ export const servicesContent: Service[] = [
       "Longer user session duration and repeat engagement",
       "Higher campaign participation and community growth",
     ],
-    icon: "🎮",
+    icon: "◉",
     colorAccent: "#22C55E",
   },
   {

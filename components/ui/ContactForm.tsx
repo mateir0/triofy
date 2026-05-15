@@ -104,7 +104,7 @@ export default function ContactForm() {
               value={values[field.name] ?? ""}
               onChange={(e) => setValues({ ...values, [field.name]: e.target.value })}
               rows={5}
-               className="w-full min-h-11 bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors resize-none"
+               className="w-full bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors resize-none"
              />
            ) : field.type === "select" ? (
              <select

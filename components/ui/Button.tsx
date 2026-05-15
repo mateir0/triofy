@@ -68,7 +68,7 @@ export default function Button({
   );
 
   if (href) {
-    const isExternal = /^https?:\/\//.test(href);
+    const isExternal = /^([a-z][a-z0-9+.-]*:|\/\/)/i.test(href);
     return (
       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
         {isExternal ? (
