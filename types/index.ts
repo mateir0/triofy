@@ -10,25 +10,30 @@ export interface Service {
   slug: string;
   category: ServiceCategory;
   description: string;
+  solves: string;
+  deliverables: string[];
+  outcomes: string[];
   icon: string;
-  features: string[];
   colorAccent: string;
 }
 
 export type ServiceCategory =
-  | "Branding"
-  | "Performance Marketing"
-  | "Web Design & Development"
-  | "Content & Creative"
-  | "Automation / Funnel Ops";
+  | "Web Development"
+  | "Graphic Design"
+  | "Game Development"
+  | "Social Media Management / Marketing"
+  | "UI/UX Design"
+  | "Custom Solutions";
 
 export interface CaseStudy {
   id: string;
   slug: string;
   title: string;
   client: string;
+  clientType: string;
   category: string;
   tags: string[];
+  tools?: string[];
   description: string;
   challenge: string;
   solution: string;

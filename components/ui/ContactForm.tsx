@@ -104,16 +104,16 @@ export default function ContactForm() {
               value={values[field.name] ?? ""}
               onChange={(e) => setValues({ ...values, [field.name]: e.target.value })}
               rows={5}
-              className="w-full bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors resize-none"
-            />
-          ) : field.type === "select" ? (
-            <select
+               className="w-full bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors resize-none"
+             />
+           ) : field.type === "select" ? (
+             <select
               id={field.name}
               name={field.name}
               value={values[field.name] ?? ""}
               onChange={(e) => setValues({ ...values, [field.name]: e.target.value })}
-              className="w-full bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#F4C542]/50 transition-colors"
-            >
+               className="w-full min-h-11 bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#F4C542]/50 transition-colors"
+             >
               <option value="">{field.placeholder}</option>
               {(field as SelectField).options.map((opt: string) => (
                 <option key={opt} value={opt}>{opt}</option>
@@ -128,8 +128,8 @@ export default function ContactForm() {
               required={field.required}
               value={values[field.name] ?? ""}
               onChange={(e) => setValues({ ...values, [field.name]: e.target.value })}
-              className="w-full bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors"
-            />
+               className="w-full min-h-11 bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors"
+             />
           )}
           <AnimatePresence>
             {errors[field.name] && (
@@ -153,7 +153,7 @@ export default function ContactForm() {
         loading={formState === "loading"}
         className="w-full"
       >
-        Send Message
+        Start a Project
       </Button>
     </form>
   );

@@ -2,88 +2,135 @@ import type { Service } from "@/types";
 
 export const servicesContent: Service[] = [
   {
-    id: "branding",
-    title: "Brand Strategy & Identity",
-    slug: "branding",
-    category: "Branding",
+    id: "web-development",
+    title: "Web Development",
+    slug: "web-development",
+    category: "Web Development",
     description:
-      "We craft compelling brand identities that resonate with your audience and differentiate you in the market.",
-    icon: "✦",
-    features: [
-      "Brand positioning & messaging",
-      "Visual identity & logo design",
-      "Brand guidelines & style guide",
-      "Tone of voice development",
-      "Competitive analysis",
+      "Conversion-focused websites and web apps built for speed, scalability, and measurable lead generation.",
+    solves:
+      "Slow, outdated, or hard-to-manage websites that lose visitors before they become qualified leads.",
+    deliverables: [
+      "Responsive website or web app development",
+      "CMS and backend integration",
+      "Performance and SEO optimization",
+      "Analytics and lead tracking setup",
     ],
+    outcomes: [
+      "Higher conversion rates from organic and paid traffic",
+      "Faster page loads and better technical SEO performance",
+    ],
+    icon: "⬡",
     colorAccent: "#F4C542",
   },
   {
-    id: "performance-marketing",
-    title: "Performance Marketing",
-    slug: "performance-marketing",
-    category: "Performance Marketing",
+    id: "graphic-design",
+    title: "Graphic Design",
+    slug: "graphic-design",
+    category: "Graphic Design",
     description:
-      "Data-driven paid media campaigns that maximize ROI across Google, Meta, and beyond.",
-    icon: "◈",
-    features: [
-      "Google Ads & PPC management",
-      "Meta & social paid advertising",
-      "Conversion rate optimization",
-      "A/B testing & optimization",
-      "Analytics & reporting dashboards",
+      "Visual assets and brand systems that make your company look credible, memorable, and market-ready.",
+    solves:
+      "Inconsistent visuals that weaken trust and reduce campaign effectiveness across channels.",
+    deliverables: [
+      "Brand identity systems and guidelines",
+      "Sales, pitch, and marketing collateral",
+      "Social media and ad creative packs",
+      "Motion and campaign visual assets",
     ],
+    outcomes: [
+      "Stronger brand recall and visual consistency",
+      "Higher click-through and engagement on campaigns",
+    ],
+    icon: "✦",
     colorAccent: "#3B82F6",
   },
   {
-    id: "web-design",
-    title: "Web Design & Development",
-    slug: "web-design",
-    category: "Web Design & Development",
+    id: "game-development",
+    title: "Game Development",
+    slug: "game-development",
+    category: "Game Development",
     description:
-      "High-performance websites and landing pages built to convert visitors into customers.",
-    icon: "⬡",
-    features: [
-      "Custom website design",
-      "Landing page development",
-      "E-commerce solutions",
-      "Performance optimization",
-      "CMS integration",
+      "Interactive game experiences for brands, communities, and product-led engagement campaigns.",
+    solves:
+      "Low audience retention and limited engagement in launches, campaigns, or digital experiences.",
+    deliverables: [
+      "2D/3D game concepting and prototyping",
+      "Gameplay and mechanics development",
+      "Cross-platform deployment support",
+      "Live-ops and analytics integration",
     ],
+    outcomes: [
+      "Longer user session duration and repeat engagement",
+      "Higher campaign participation and community growth",
+    ],
+    icon: "◉",
     colorAccent: "#22C55E",
   },
   {
-    id: "content-creative",
-    title: "Content & Creative",
-    slug: "content-creative",
-    category: "Content & Creative",
+    id: "social-media-management",
+    title: "Social Media Management / Marketing",
+    slug: "social-media-management",
+    category: "Social Media Management / Marketing",
     description:
-      "Compelling content that tells your story, builds authority, and drives organic growth.",
-    icon: "◐",
-    features: [
-      "Content strategy & planning",
-      "Copywriting & SEO content",
-      "Social media management",
-      "Video production & editing",
-      "Graphic design & illustration",
+      "Consistent social strategy and execution designed to grow awareness, engagement, and qualified inbound leads.",
+    solves:
+      "Unstructured social presence with inconsistent publishing and low conversion from audience attention.",
+    deliverables: [
+      "Channel strategy and monthly content calendar",
+      "Content production and account management",
+      "Paid social campaign execution",
+      "Performance reporting and optimization",
     ],
+    outcomes: [
+      "Steady growth in qualified audience and engagement",
+      "Improved cost-per-lead and social conversion performance",
+    ],
+    icon: "◐",
     colorAccent: "#EC4899",
   },
   {
-    id: "automation",
-    title: "Automation & Funnel Ops",
-    slug: "automation",
-    category: "Automation / Funnel Ops",
+    id: "ui-ux-design",
+    title: "UI/UX Design",
+    slug: "ui-ux-design",
+    category: "UI/UX Design",
     description:
-      "Streamline your growth with intelligent automation, funnels, and CRM integrations.",
-    icon: "⟳",
-    features: [
-      "Marketing automation setup",
-      "Sales funnel design & build",
-      "CRM integration & optimization",
-      "Email sequence development",
-      "Lead scoring & nurturing",
+      "User-centered product and interface design that removes friction and improves task completion.",
+    solves:
+      "Confusing journeys and poor interfaces that frustrate users and reduce conversion rates.",
+    deliverables: [
+      "UX research and journey mapping",
+      "Wireframes and high-fidelity UI design",
+      "Interactive prototypes and design systems",
+      "Usability testing and iteration loops",
     ],
+    outcomes: [
+      "Better onboarding completion and retention metrics",
+      "Lower drop-off on key conversion paths",
+    ],
+    icon: "◈",
+    colorAccent: "#8B5CF6",
+  },
+  {
+    id: "custom-solutions",
+    title: "Custom Solutions",
+    slug: "custom-solutions",
+    category: "Custom Solutions",
+    description:
+      "Tailored strategic and technical solutions for unique business challenges that don't fit off-the-shelf packages.",
+    solves:
+      "Complex growth and operations bottlenecks that require multi-disciplinary execution across strategy, design, and development.",
+    deliverables: [
+      "Discovery workshop and solution architecture",
+      "Cross-functional implementation roadmap",
+      "Custom integrations and process automation",
+      "Ongoing optimization and support",
+    ],
+    outcomes: [
+      "Faster execution across internal teams",
+      "Measurable efficiency gains and improved ROI visibility",
+    ],
+    icon: "⟳",
     colorAccent: "#8B5CF6",
   },
 ];

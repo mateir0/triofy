@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { CaseStudy } from "@/types";
 
@@ -18,9 +19,13 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
       className="group rounded-2xl overflow-hidden bg-[#132331] border border-white/10 hover:border-[#F4C542]/30 transition-all duration-300"
     >
       <div className="relative h-56 bg-gradient-to-br from-[#132331] to-[#0E1A24] overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-6xl font-black text-white/5 select-none">{study.client[0]}</div>
-        </div>
+        <Image
+          src={study.heroImage}
+          alt={`${study.title} project visual`}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-[#132331] via-transparent to-transparent" />
         <div className="absolute top-4 left-4">
           <span className="text-xs font-semibold bg-[#F4C542] text-[#0E1A24] px-3 py-1 rounded-full">
@@ -30,14 +35,14 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
         <div className="absolute inset-0 bg-[#0E1A24]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <Link
             href={`/work/${study.slug}`}
-            className="bg-[#F4C542] text-[#0E1A24] font-bold px-6 py-3 rounded-xl text-sm"
+            className="bg-[#F4C542] text-[#0E1A24] font-bold px-6 py-3 rounded-xl text-sm min-h-11 inline-flex items-center"
           >
             View Case Study →
           </Link>
         </div>
       </div>
       <div className="p-6">
-        <p className="text-[#A7B0B8] text-xs font-medium mb-1">{study.client} · {study.year}</p>
+        <p className="text-[#A7B0B8] text-xs font-medium mb-1">{study.client} · {study.clientType} · {study.year}</p>
         <h3 className="text-white font-semibold text-lg mb-2">{study.title}</h3>
         <p className="text-[#A7B0B8] text-sm leading-relaxed mb-4">{study.description}</p>
         <div className="flex flex-wrap gap-2">

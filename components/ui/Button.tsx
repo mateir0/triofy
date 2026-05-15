@@ -26,9 +26,9 @@ const variantClasses: Record<ButtonVariant, string> = {
 };
 
 const sizeClasses = {
-  sm: "px-4 py-2 text-sm rounded-lg",
-  md: "px-6 py-3 text-base rounded-xl",
-  lg: "px-8 py-4 text-lg rounded-xl",
+  sm: "px-4 min-h-11 text-sm rounded-lg",
+  md: "px-6 min-h-11 text-base rounded-xl",
+  lg: "px-8 min-h-12 text-lg rounded-xl",
 };
 
 export default function Button({
@@ -68,11 +68,18 @@ export default function Button({
   );
 
   if (href) {
+    const isExternal = /^([a-z][a-z0-9+.-]*:|\/\/)/i.test(href);
     return (
       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-        <Link href={href} className={classes}>
-          {content}
-        </Link>
+        {isExternal ? (
+          <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+            {content}
+          </a>
+        ) : (
+          <Link href={href} className={classes}>
+            {content}
+          </Link>
+        )}
       </motion.div>
     );
   }

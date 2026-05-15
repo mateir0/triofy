@@ -1,6 +1,7 @@
 export const homeContent = {
   sectionOrder: [
     "hero",
+    "intro",
     "socialProof",
     "services",
     "work",
@@ -16,7 +17,14 @@ export const homeContent = {
       subheading:
         "Triofy Agency blends data-driven strategy, bold creative, and cutting-edge technology to help ambitious brands scale faster.",
       primaryCta: { label: "Start a Project", href: "/contact" },
-      secondaryCta: { label: "View Our Work", href: "/work" },
+      secondaryCta: { label: "Get a Quote", href: "/contact" },
+    },
+    intro: {
+      enabled: true,
+      heading: "Meet Triofy Agency",
+      body:
+        "Triofy is a growth-focused digital agency built around a managed expert network. We combine senior strategy with specialist execution to help businesses launch faster, convert better, and scale sustainably.",
+      cta: { label: "Contact Us", href: "/contact" },
     },
     socialProof: {
       enabled: true,
@@ -56,7 +64,7 @@ export const homeContent = {
     finalCta: {
       enabled: true,
       heading: "Ready to Grow?",
-      subheading: "Let's build something remarkable together. Book a free strategy call today.",
+      subheading: "Let's build something remarkable together. Book a call or request a custom quote today.",
       cta: { label: "Book a Call", href: "/contact" },
     },
   },

@@ -5,9 +5,8 @@ import { z } from "zod";
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address"),
-  company: z.string().optional(),
-  budget: z.string().optional(),
-  service: z.string().optional(),
+  projectType: z.string().min(1, "Project type is required"),
+  budget: z.string().min(1, "Budget is required"),
   message: z.string().min(1, "Message is required"),
   _honeypot: z.string().max(0, "Bot detected"),
 });
@@ -28,13 +27,18 @@ export async function POST(request: NextRequest) {
     console.log("Contact form submission:", {
       name: result.data.name,
       email: result.data.email,
-      company: result.data.company,
+      projectType: result.data.projectType,
       budget: result.data.budget,
-      service: result.data.service,
       message: result.data.message,
     });
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json(
+      {
+        success: true,
+        note: "Lead captured. Email delivery and CRM integration placeholder active; connect provider via environment configuration.",
+      },
+      { status: 200 }
+    );
   } catch {
     return NextResponse.json(
       { error: "Internal server error" },

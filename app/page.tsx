@@ -11,6 +11,7 @@ import SceneWrapper from "@/components/3d/SceneWrapper";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import { faqs } from "@/content/faqs";
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import Button from "@/components/ui/Button";
 
 const { sections } = homeContent;
 
@@ -19,6 +20,21 @@ export default function HomePage() {
     <>
       {sections.hero.enabled && (
         <Hero content={sections.hero} SceneComponent={SceneWrapper} />
+      )}
+      {sections.intro.enabled && (
+        <SectionWrapper background="muted">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
+              {sections.intro.heading}
+            </h2>
+            <p className="text-[#A7B0B8] text-base sm:text-lg leading-relaxed mb-8">
+              {sections.intro.body}
+            </p>
+            <Button href={sections.intro.cta.href} variant="secondary">
+              {sections.intro.cta.label}
+            </Button>
+          </div>
+        </SectionWrapper>
       )}
       {sections.socialProof.enabled && (
         <SocialProof content={sections.socialProof} />
