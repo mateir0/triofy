@@ -1,8 +1,8 @@
 export const aboutContent = {
   story: [
-    "Triofy was founded in 2020 by three friends who believed that great marketing should be accessible to every ambitious brand — not just Fortune 500 companies.",
-    "We grew from a scrappy three-person operation to a full-service agency by doing one thing exceptionally well: delivering measurable results. Every campaign, every project, every relationship is built on the foundation of transparent performance.",
-    "Today, Triofy is home to a diverse team of strategists, creatives, and technologists united by a single mission: to grow the brands that are shaping the future.",
+    "Triofy was founded in 2026 by three friends who believed that great marketing should be accessible to every ambitious brand — not just Fortune 500 companies.",
+    "We’re an emerging agency, still building our foundation, but we already bring the energy, focus, and hands-on care that ambitious brands deserve.",
+    "We’re not fully established yet — and that’s our strength. Every client relationship shapes how we grow, adapt, and deliver meaningful results.",
   ],
   mission:
     "To democratize world-class marketing and help ambitious brands punch above their weight.",
