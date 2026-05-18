@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import FirstLoadScreen from "@/components/ui/FirstLoadScreen";
 import { site } from "@/config/site";
 import { defaultSeo } from "@/config/seo";
 
@@ -25,7 +24,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-[#0E1A24] text-[#F8FAFC] antialiased">
-        <FirstLoadScreen />
         <Navbar />
         <main>{children}</main>
         <Footer />
