@@ -123,88 +123,14 @@ body.loader-lock {
   color: #F8FAFC;
 }
 
-.loader-core {
-  position: relative;
-  width: clamp(150px, 32vw, 220px);
-  height: clamp(150px, 32vw, 220px);
-  display: grid;
-  place-items: center;
-  transform-style: preserve-3d;
-  animation: core-float 6s ease-in-out infinite;
+.loader-core-canvas {
+  width: clamp(170px, 34vw, 260px);
+  height: clamp(170px, 34vw, 260px);
 }
 
-.loader-core-orb {
-  width: 60%;
-  height: 60%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff6d9, #F4C542 45%, #c98f1d 70%);
-  box-shadow: 0 0 30px rgba(244, 197, 66, 0.6), 0 0 80px rgba(244, 197, 66, 0.35);
-  transform: translateZ(20px);
-  animation: orb-pulse 2.5s ease-in-out infinite;
-}
-
-.loader-core-glow {
-  position: absolute;
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent 60%);
-  filter: blur(8px);
-  transform: translateZ(5px);
-}
-
-.loader-core-ring {
-  position: absolute;
-  inset: 12%;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-}
-
-.loader-core-ring-primary {
-  transform: rotateX(70deg) rotateZ(20deg);
-  animation: ring-spin 7s linear infinite;
-}
-
-.loader-core-ring-secondary {
-  inset: 22%;
-  border-color: rgba(244, 197, 66, 0.25);
-  transform: rotateY(70deg) rotateZ(-10deg);
-  animation: ring-spin 5.5s linear infinite reverse;
-}
-
-.loader-core-particles {
-  position: absolute;
-  inset: -5%;
-  animation: particles-spin 8s linear infinite;
-}
-
-.loader-core-particles span {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #F8FAFC;
-  box-shadow: 0 0 12px rgba(248, 250, 252, 0.8);
-}
-
-.loader-core-particles span:nth-child(1) {
-  top: 8%;
-  left: 50%;
-}
-
-.loader-core-particles span:nth-child(2) {
-  bottom: 12%;
-  left: 18%;
-  background: #3B82F6;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
-}
-
-.loader-core-particles span:nth-child(3) {
-  right: 14%;
-  top: 55%;
-  background: #F4C542;
-  box-shadow: 0 0 12px rgba(244, 197, 66, 0.9);
+.loader-core-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .loader-text {
@@ -236,51 +162,9 @@ body.loader-lock {
   }
 }
 
-@keyframes core-float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes orb-pulse {
-  0%,
-  100% {
-    transform: translateZ(20px) scale(1);
-  }
-  50% {
-    transform: translateZ(25px) scale(1.04);
-  }
-}
-
-@keyframes ring-spin {
-  from {
-    transform: rotateX(70deg) rotateZ(0deg);
-  }
-  to {
-    transform: rotateX(70deg) rotateZ(360deg);
-  }
-}
-
-@keyframes particles-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .loader-aurora,
-  .loader-stars,
-  .loader-core,
-  .loader-core-orb,
-  .loader-core-ring,
-  .loader-core-particles {
+  .loader-stars {
     animation: none;
   }
 }
