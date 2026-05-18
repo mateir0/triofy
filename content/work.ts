@@ -1,5 +1,11 @@
 import type { CaseStudy } from "@/types";
 
+const realResults = [
+  "Built a 35-minute exosomes course",
+  "Delivered 70+ students to Engr. Khuzama Tahir",
+  "Managing the social media page of an Islamic tutor",
+];
+
 export const caseStudies: CaseStudy[] = [
   {
     id: "nova-rebrand",
@@ -11,11 +17,7 @@ export const caseStudies: CaseStudy[] = [
     description: "A complete brand overhaul that repositioned Nova from a generic tech company to an industry-leading innovator.",
     challenge: "Nova Technologies had grown rapidly but their brand felt disconnected from their premium positioning. They needed a cohesive identity that reflected their innovative culture.",
     solution: "We developed a comprehensive brand strategy starting with stakeholder interviews and competitive analysis. The new identity system included a refined logo, bold color palette, and distinctive visual language.",
-    results: [
-      "340% increase in brand recognition scores",
-      "2.1x improvement in qualified lead generation",
-      "Featured in 3 major industry publications",
-    ],
+    results: realResults,
     heroImage: "/images/placeholder.jpg",
     gallery: ["/images/placeholder.jpg", "/images/placeholder.jpg"],
     featured: true,
@@ -31,11 +33,7 @@ export const caseStudies: CaseStudy[] = [
     description: "A 6-month performance marketing campaign that tripled GrowthCo's revenue through strategic paid media.",
     challenge: "GrowthCo was spending $50k/month on ads with a 1.2x ROAS. They needed dramatic improvements in efficiency and scale.",
     solution: "We audited their entire funnel, rebuilt campaign structures from scratch, and implemented advanced audience segmentation with dynamic creative optimization.",
-    results: [
-      "ROAS improved from 1.2x to 4.8x",
-      "Cost per acquisition reduced by 67%",
-      "$2.4M in attributed revenue in 6 months",
-    ],
+    results: realResults,
     heroImage: "/images/placeholder.jpg",
     gallery: ["/images/placeholder.jpg"],
     featured: true,
@@ -51,11 +49,7 @@ export const caseStudies: CaseStudy[] = [
     description: "A stunning e-commerce experience built for conversion, resulting in a 180% lift in online sales.",
     challenge: "BrandX had a dated website with poor mobile experience and a 3.2% conversion rate that was dragging down their overall revenue.",
     solution: "We redesigned the entire shopping experience with a mobile-first approach, implemented advanced product discovery features, and optimized the checkout flow.",
-    results: [
-      "Conversion rate increased from 3.2% to 8.9%",
-      "180% increase in online revenue",
-      "Page load time reduced to under 1.5 seconds",
-    ],
+    results: realResults,
     heroImage: "/images/placeholder.jpg",
     gallery: ["/images/placeholder.jpg", "/images/placeholder.jpg"],
     featured: true,
@@ -71,11 +65,7 @@ export const caseStudies: CaseStudy[] = [
     description: "A comprehensive content strategy that established ScaleUp as the thought leader in their niche.",
     challenge: "ScaleUp had zero organic presence and was entirely dependent on paid channels. They needed a sustainable content engine.",
     solution: "We built a full content strategy including SEO-optimized blog content, LinkedIn thought leadership, and a video series.",
-    results: [
-      "0 to 45,000 monthly organic visitors in 8 months",
-      "LinkedIn following grew from 200 to 12,000",
-      "Featured in 7 industry podcasts",
-    ],
+    results: realResults,
     heroImage: "/images/placeholder.jpg",
     gallery: ["/images/placeholder.jpg"],
     featured: false,
