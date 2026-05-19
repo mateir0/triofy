@@ -70,23 +70,6 @@ export const servicesContent: Service[] = [
     colorAccent: "#EC4899",
   },
   {
-    id: "automation",
-    title: "Automation & Funnel Ops",
-    slug: "automation",
-    category: "Automation / Funnel Ops",
-    description:
-      "Streamline your growth with intelligent automation, funnels, and CRM integrations.",
-    icon: "⟳",
-    features: [
-      "Marketing automation setup",
-      "Sales funnel design & build",
-      "CRM integration & optimization",
-      "Email sequence development",
-      "Lead scoring & nurturing",
-    ],
-    colorAccent: "#8B5CF6",
-  },
-  {
     id: "custom-service",
     title: "Custom Service",
     slug: "custom-service",
@@ -102,5 +85,22 @@ export const servicesContent: Service[] = [
       "Anything digital you need",
     ],
     colorAccent: "#F97316",
+  },
+  {
+    id: "automation",
+    title: "Automation & Funnel Ops",
+    slug: "automation",
+    category: "Automation / Funnel Ops",
+    description:
+      "Streamline your growth with intelligent automation, funnels, and CRM integrations.",
+    icon: "⟳",
+    features: [
+      "Marketing automation setup",
+      "Sales funnel design & build",
+      "CRM integration & optimization",
+      "Email sequence development",
+      "Lead scoring & nurturing",
+    ],
+    colorAccent: "#8B5CF6",
   },
 ];
