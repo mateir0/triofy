@@ -8,6 +8,7 @@ type SanityTestimonial = {
   company?: string
   quote: string
   rating: number
+  photoUrl?: string
 }
 
 const testimonialsQuery = `*[_type == "testimonial" && (!defined(publishedAt) || publishedAt <= now())] | order(order asc, publishedAt desc){
@@ -16,7 +17,8 @@ const testimonialsQuery = `*[_type == "testimonial" && (!defined(publishedAt) ||
   role,
   company,
   quote,
-  rating
+  rating,
+  "photoUrl": photo.asset->url
 }`
 
 export async function getTestimonials(): Promise<Testimonial[]> {
@@ -31,7 +33,7 @@ export async function getTestimonials(): Promise<Testimonial[]> {
     author: testimonial.name,
     role: testimonial.role ?? '',
     company: testimonial.company ?? '',
-    avatar: '',
+    avatar: testimonial.photoUrl ?? '',
     quote: testimonial.quote,
     rating: testimonial.rating,
   }))
