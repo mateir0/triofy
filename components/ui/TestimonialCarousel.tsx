@@ -1,41 +1,45 @@
-"use client";
+'use client'
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import type { Testimonial } from "@/types";
+import {useState, useEffect, useCallback} from 'react'
+import {motion, AnimatePresence} from 'framer-motion'
+import type {Testimonial} from '@/types'
 
 interface TestimonialCarouselProps {
-  testimonials: Testimonial[];
+  testimonials: Testimonial[]
 }
 
-export default function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
-  const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [direction, setDirection] = useState(1);
+export default function TestimonialCarousel({testimonials}: TestimonialCarouselProps) {
+  const [current, setCurrent] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const [direction, setDirection] = useState(1)
 
   const next = useCallback(() => {
-    setDirection(1);
-    setCurrent((prev) => (prev + 1) % testimonials.length);
-  }, [testimonials.length]);
+    setDirection(1)
+    setCurrent((prev) => (prev + 1) % testimonials.length)
+  }, [testimonials.length])
 
   const prev = useCallback(() => {
-    setDirection(-1);
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  }, [testimonials.length]);
+    setDirection(-1)
+    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }, [testimonials.length])
 
   useEffect(() => {
-    if (paused) return;
-    const interval = setInterval(next, 5000);
-    return () => clearInterval(interval);
-  }, [paused, next]);
+    if (paused || testimonials.length === 0) return
+    const interval = setInterval(next, 5000)
+    return () => clearInterval(interval)
+  }, [paused, next, testimonials.length])
 
-  const testimonial = testimonials[current];
+  if (testimonials.length === 0) {
+    return null
+  }
+
+  const testimonial = testimonials[current]
 
   const variants = {
-    enter: (dir: number) => ({ x: dir * 60, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir * -60, opacity: 0 }),
-  };
+    enter: (dir: number) => ({x: dir * 60, opacity: 0}),
+    center: {x: 0, opacity: 1},
+    exit: (dir: number) => ({x: dir * -60, opacity: 0}),
+  }
 
   return (
     <div
@@ -52,12 +56,14 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{duration: 0.4, ease: 'easeInOut'}}
             className="w-full"
           >
             <div className="flex gap-1 mb-6">
-              {Array.from({ length: testimonial.rating }).map((_, i) => (
-                <span key={i} className="text-[#F4C542] text-lg">★</span>
+              {Array.from({length: testimonial.rating}).map((_, i) => (
+                <span key={i} className="text-[#F4C542] text-lg">
+                  ★
+                </span>
               ))}
             </div>
             <blockquote className="text-white text-lg md:text-xl leading-relaxed mb-8 font-medium">
@@ -69,7 +75,11 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
               </div>
               <div>
                 <p className="text-white font-semibold">{testimonial.author}</p>
-                <p className="text-[#A7B0B8] text-sm">{testimonial.role}, {testimonial.company}</p>
+                <p className="text-[#A7B0B8] text-sm">
+                  {testimonial.role}
+                  {testimonial.role && testimonial.company ? ', ' : ''}
+                  {testimonial.company}
+                </p>
               </div>
             </div>
           </motion.div>
@@ -91,11 +101,11 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
             <button
               key={i}
               onClick={() => {
-                setDirection(i > current ? 1 : -1);
-                setCurrent(i);
+                setDirection(i > current ? 1 : -1)
+                setCurrent(i)
               }}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-[#F4C542] w-6" : "bg-white/30 w-2"
+                i === current ? 'bg-[#F4C542] w-6' : 'bg-white/30 w-2'
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />
@@ -112,5 +122,5 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
         </button>
       </div>
     </div>
-  );
+  )
 }
