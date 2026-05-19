@@ -92,7 +92,7 @@ export const servicesContent: Service[] = [
     slug: "custom-service",
     category: "Web Design & Development",
     description:
-      "Got something unique in mind? Tell us what you need  if it lives online, well build it.",
+      "Got something unique in mind? Tell us what you need — if it lives online, we’ll build it.",
     icon: "✺",
     features: [
       "Custom web experiences",
