@@ -20,6 +20,10 @@ const testimonialsQuery = `*[_type == "testimonial" && (!defined(publishedAt) ||
 }`
 
 export async function getTestimonials(): Promise<Testimonial[]> {
+  if (!sanityClient) {
+    return []
+  }
+
   const testimonials = await sanityClient.fetch<SanityTestimonial[]>(testimonialsQuery)
 
   return testimonials.map((testimonial) => ({
