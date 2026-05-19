@@ -1,1 +1,3 @@
-// Sanity removed. File left intentionally blank for clean restart.
+import testimonial from './schemas/testimonial'
+
+export const schemaTypes = [testimonial]
