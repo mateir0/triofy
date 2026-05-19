@@ -86,4 +86,21 @@ export const servicesContent: Service[] = [
     ],
     colorAccent: "#8B5CF6",
   },
+  {
+    id: "custom-service",
+    title: "Custom Service",
+    slug: "custom-service",
+    category: "Web Design & Development",
+    description:
+      "Got something unique in mind? Tell us what you need  if it lives online, well build it.",
+    icon: "✺",
+    features: [
+      "Custom web experiences",
+      "Unique product builds",
+      "Platform integrations",
+      "Experimental ideas & MVPs",
+      "Anything digital you need",
+    ],
+    colorAccent: "#F97316",
+  },
 ];
