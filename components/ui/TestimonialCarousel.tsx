@@ -2,6 +2,7 @@
 
 import {useState, useEffect, useCallback} from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
+import Image from 'next/image'
 import type {Testimonial} from '@/types'
 
 interface TestimonialCarouselProps {
@@ -70,9 +71,19 @@ export default function TestimonialCarousel({testimonials}: TestimonialCarouselP
               &ldquo;{testimonial.quote}&rdquo;
             </blockquote>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#F4C542] to-[#e6b83c] flex items-center justify-center text-[#0E1A24] font-bold text-lg">
-                {testimonial.author[0]}
-              </div>
+              {testimonial.avatar ? (
+                <Image
+                  src={testimonial.avatar}
+                  alt={`${testimonial.author} avatar`}
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+              ) : (
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#F4C542] to-[#e6b83c] flex items-center justify-center text-[#0E1A24] font-bold text-lg">
+                  {testimonial.author[0]}
+                </div>
+              )}
               <div>
                 <p className="text-white font-semibold">{testimonial.author}</p>
                 <p className="text-[#A7B0B8] text-sm">
