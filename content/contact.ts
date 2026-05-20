@@ -17,6 +17,6 @@ export const contactContent = {
   },
   error: {
     heading: "Something went wrong",
-    message: "Please try again or email us directly at hello@triofy.com.",
+    message: "Please try again or email us directly at infoclientify@gmail.com.",
   },
 } as const;

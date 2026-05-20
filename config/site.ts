@@ -5,8 +5,8 @@ export const site = {
     "Triofy Agency is a full-service digital marketing agency specializing in branding, performance marketing, web design, content creation, and growth automation.",
   url: "https://triofy.com",
   logo: "/images/logo.svg",
-  email: "hello@triofy.com",
-  phone: "+1 (555) 000-0000",
+  email: "infoclientify@gmail.com",
+  phone: "+92 326 2134990",
   social: {
     twitter: "https://twitter.com/triofy",
     linkedin: "https://linkedin.com/company/triofy",

@@ -36,7 +36,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-white font-semibold text-xl mb-3">4. Contact Us</h2>
             <p>
-              If you have any questions about these Terms, please contact us at hello@triofy.com.
+              If you have any questions about these Terms, please contact us at infoclientify@gmail.com.
             </p>
           </section>
         </div>

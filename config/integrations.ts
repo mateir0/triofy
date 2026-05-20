@@ -11,7 +11,7 @@ export const integrations = {
   email: {
     provider: "resend" as const,
     apiKey: "",
-    fromAddress: "hello@triofy.com",
+    fromAddress: "infoclientify@gmail.com",
     enabled: false,
   },
   calendly: {
