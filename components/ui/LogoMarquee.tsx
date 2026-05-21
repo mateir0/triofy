@@ -28,7 +28,7 @@ export default function LogoMarquee() {
     <div
       role="region"
       aria-label="Trusted company logos"
-      className="logo-marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+      className="logo-marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]"
     >
       <div className="logo-marquee-track flex w-max items-center">
         {Array.from({ length: 2 }).map((_, groupIndex) => (
