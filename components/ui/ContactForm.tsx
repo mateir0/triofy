@@ -13,6 +13,8 @@ export default function ContactForm() {
   const [values, setValues] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [honeypot, setHoneypot] = useState("");
+  const [customBudget, setCustomBudget] = useState("");
+  const [customService, setCustomService] = useState("");
 
   const validate = (): boolean => {
     const newErrors: Record<string, string> = {};
@@ -35,10 +37,16 @@ export default function ContactForm() {
 
     setFormState("loading");
     try {
+      const payload = {
+        ...values,
+        _honeypot: honeypot,
+        ...(values.budget === "Custom Budget" && customBudget ? { budget: `Custom: ${customBudget}` } : {}),
+        ...(values.service === "Custom" && customService ? { service: `Custom: ${customService}` } : {}),
+      };
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, _honeypot: honeypot }),
+        body: JSON.stringify(payload),
       });
       if (res.ok) {
         setFormState("success");
@@ -107,18 +115,42 @@ export default function ContactForm() {
               className="w-full bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors resize-none"
             />
           ) : field.type === "select" ? (
-            <select
-              id={field.name}
-              name={field.name}
-              value={values[field.name] ?? ""}
-              onChange={(e) => setValues({ ...values, [field.name]: e.target.value })}
-              className="w-full bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#F4C542]/50 transition-colors"
-            >
-              <option value="">{field.placeholder}</option>
-              {(field as SelectField).options.map((opt: string) => (
-                <option key={opt} value={opt}>{opt}</option>
-              ))}
-            </select>
+            <>
+              <select
+                id={field.name}
+                name={field.name}
+                value={values[field.name] ?? ""}
+                onChange={(e) => setValues({ ...values, [field.name]: e.target.value })}
+                className="w-full bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#F4C542]/50 transition-colors"
+              >
+                <option value="">{field.placeholder}</option>
+                {(field as SelectField).options.map((opt: string) => (
+                  <option key={opt} value={opt}>{opt}</option>
+                ))}
+              </select>
+              {field.name === "budget" && values.budget === "Custom Budget" && (
+                <input
+                  type="text"
+                  id="customBudget"
+                  name="customBudget"
+                  placeholder="Enter your budget (e.g. $1,200/mo)"
+                  value={customBudget}
+                  onChange={(e) => setCustomBudget(e.target.value)}
+                  className="w-full mt-3 bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors"
+                />
+              )}
+              {field.name === "service" && values.service === "Custom" && (
+                <textarea
+                  id="customService"
+                  name="customService"
+                  placeholder="Describe the service you're looking for..."
+                  value={customService}
+                  onChange={(e) => setCustomService(e.target.value)}
+                  rows={3}
+                  className="w-full mt-3 bg-[#132331] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-[#A7B0B8]/50 focus:outline-none focus:border-[#F4C542]/50 transition-colors resize-none"
+                />
+              )}
+            </>
           ) : (
             <input
               id={field.name}
