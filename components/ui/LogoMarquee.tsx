@@ -4,11 +4,23 @@ import logoTwo from "@/public/logos/1000300971.jpg";
 import logoThree from "@/public/logos/1000300972.jpg";
 import logoFour from "@/public/logos/1000300973.jpg";
 
+const LOGO_FRAME_CLASS_NAME =
+  "group/logo relative flex h-12 w-28 shrink-0 items-center justify-center sm:h-14 sm:w-32 md:h-16 md:w-40 lg:h-20 lg:w-48";
+
+const LOGO_SIZES = {
+  mobile: 112,
+  small: 128,
+  medium: 160,
+  large: 192,
+} as const;
+
+const logoSizes = `(max-width: 640px) ${LOGO_SIZES.mobile}px, (max-width: 768px) ${LOGO_SIZES.small}px, (max-width: 1024px) ${LOGO_SIZES.medium}px, ${LOGO_SIZES.large}px`;
+
 const logos = [
-  { src: logoOne },
-  { src: logoTwo },
-  { src: logoThree },
-  { src: logoFour },
+  { src: logoOne, alt: "Trusted company logo 1" },
+  { src: logoTwo, alt: "Trusted company logo 2" },
+  { src: logoThree, alt: "Trusted company logo 3" },
+  { src: logoFour, alt: "Trusted company logo 4" },
 ] as const;
 
 export default function LogoMarquee() {
@@ -24,13 +36,13 @@ export default function LogoMarquee() {
             {logos.map((logo, logoIndex) => (
               <div
                 key={`${groupIndex}-${logoIndex}`}
-                className="group/logo relative flex h-12 w-28 shrink-0 items-center justify-center sm:h-14 sm:w-32 md:h-16 md:w-40 lg:h-20 lg:w-48"
+                className={LOGO_FRAME_CLASS_NAME}
               >
                 <Image
                   src={logo.src}
-                  alt=""
+                  alt={logo.alt}
                   fill
-                  sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 192px"
+                  sizes={logoSizes}
                   className="object-contain object-center opacity-75 saturate-[0.35] transition-[filter,opacity] duration-300 ease-out group-hover/logo:opacity-100 group-hover/logo:saturate-100"
                 />
               </div>
