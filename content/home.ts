@@ -20,14 +20,7 @@ export const homeContent = {
     },
     socialProof: {
       enabled: true,
-      heading: "Trusted by forward-thinking brands",
-      logos: [
-        { name: "TechCorp", placeholder: true },
-        { name: "GrowthCo", placeholder: true },
-        { name: "BrandX", placeholder: true },
-        { name: "ScaleUp", placeholder: true },
-        { name: "NovaCo", placeholder: true },
-      ],
+      heading: "Trusted by companies worldwide",
     },
     services: {
       enabled: true,
