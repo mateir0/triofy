@@ -25,7 +25,11 @@ const logos = [
 
 export default function LogoMarquee() {
   return (
-    <div className="logo-marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+    <div
+      role="region"
+      aria-label="Trusted company logos"
+      className="logo-marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+    >
       <div className="logo-marquee-track flex w-max items-center">
         {Array.from({ length: 2 }).map((_, groupIndex) => (
           <div
@@ -42,6 +46,7 @@ export default function LogoMarquee() {
                   src={logo.src}
                   alt={logo.alt}
                   fill
+                  loading="lazy"
                   sizes={logoSizes}
                   className="object-contain object-center opacity-75 saturate-[0.35] transition-[filter,opacity] duration-300 ease-out group-hover/logo:opacity-100 group-hover/logo:saturate-100"
                 />
