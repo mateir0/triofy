@@ -46,7 +46,6 @@ export default function LogoMarquee() {
                   src={logo.src}
                   alt={logo.alt}
                   fill
-                  loading="lazy"
                   sizes={logoSizes}
                   className="object-contain object-center opacity-75 saturate-[0.35] transition-[filter,opacity] duration-300 ease-out group-hover/logo:opacity-100 group-hover/logo:saturate-100"
                 />
