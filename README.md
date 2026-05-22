@@ -1,5 +1,20 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Contact Form Email Setup (Vercel)
+
+To make `/contact` send real emails:
+
+1. Create a [Resend](https://resend.com) account and generate an API key.
+2. In Vercel project settings, add these environment variables:
+   - `RESEND_API_KEY`
+   - `CONTACT_TO_EMAIL` (required recipient inbox, e.g. `infoclientify@gmail.com`)
+   - `CONTACT_FROM_EMAIL` (optional; defaults to `Triofy Contact <onboarding@resend.dev>` for testing, but use your own verified sender in production)
+3. Redeploy the site.
+
+The API route is `app/api/contact/route.ts` and sends:
+1. One notification email to `CONTACT_TO_EMAIL`.
+2. One confirmation email back to the form submitter.
+
 ## Getting Started
 
 First, run the development server:
