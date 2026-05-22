@@ -14,10 +14,7 @@ const contactSchema = z.object({
   service: z.string().trim().max(200, "Service value is too long").optional(),
   message: z.string().trim().min(1, "Message is required").max(5000, "Message is too long"),
   _honeypot: z.string().max(0, "Bot detected"),
-  _submittedAt: z.number().int().positive("Invalid submission time"),
 });
-
-const minimumSubmitDelayMs = 3000;
 
 const escapeHtml = (value: string) =>
   value
@@ -39,15 +36,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (Date.now() - result.data._submittedAt < minimumSubmitDelayMs) {
-      return NextResponse.json({ error: "Validation failed" }, { status: 400 });
-    }
-
     if (!resend) {
       return NextResponse.json({ error: "Email service not configured" }, { status: 503 });
     }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL || "infoclientify@gmail.com";
+    const toEmail = process.env.CONTACT_TO_EMAIL;
+    if (!toEmail) {
+      return NextResponse.json({ error: "Recipient email not configured" }, { status: 503 });
+    }
+
     const fromEmail = process.env.CONTACT_FROM_EMAIL || "Triofy Contact <onboarding@resend.dev>";
     const company = result.data.company || "Not provided";
     const budget = result.data.budget || "Not provided";
@@ -80,7 +77,7 @@ export async function POST(request: NextRequest) {
       <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
     `;
 
-    await resend.emails.send({
+    const notifyResult = await resend.emails.send({
       from: fromEmail,
       to: [toEmail],
       replyTo: email,
@@ -88,17 +85,20 @@ export async function POST(request: NextRequest) {
       text: plainText,
       html,
     });
+    if (notifyResult.error) {
+      console.error("Failed to send contact notification email", notifyResult.error);
+      return NextResponse.json({ error: "Failed to send message" }, { status: 502 });
+    }
 
-    void resend.emails
-      .send({
-        from: fromEmail,
-        to: [email],
-        subject: "We received your message",
-        text: `Hi ${name},\n\nThanks for contacting Triofy. We received your message and will get back to you within 24 hours.\n\n- Triofy`,
-      })
-      .catch((error) => {
-        console.error("Failed to send contact confirmation email", error);
-      });
+    const confirmationResult = await resend.emails.send({
+      from: fromEmail,
+      to: [email],
+      subject: "We received your message",
+      text: `Hi ${name},\n\nThanks for contacting Triofy. We received your message and will get back to you within 24 hours.\n\n- Triofy`,
+    });
+    if (confirmationResult.error) {
+      console.error("Failed to send contact confirmation email", confirmationResult.error);
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {

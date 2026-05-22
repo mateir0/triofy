@@ -13,7 +13,6 @@ export default function ContactForm() {
   const [values, setValues] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [honeypot, setHoneypot] = useState("");
-  const [submittedAt] = useState(() => Date.now());
   const [customBudget, setCustomBudget] = useState("");
   const [customService, setCustomService] = useState("");
 
@@ -41,7 +40,6 @@ export default function ContactForm() {
       const payload = {
         ...values,
         _honeypot: honeypot,
-        _submittedAt: submittedAt,
         ...(values.budget === "Custom Budget" && customBudget ? { budget: `Custom: ${customBudget}` } : {}),
         ...(values.service === "Custom" && customService ? { service: `Custom: ${customService}` } : {}),
       };

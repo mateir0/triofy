@@ -7,13 +7,13 @@ To make `/contact` send real emails:
 1. Create a [Resend](https://resend.com) account and generate an API key.
 2. In Vercel project settings, add these environment variables:
    - `RESEND_API_KEY`
-   - `CONTACT_TO_EMAIL` (defaults to `infoclientify@gmail.com`)
-   - `CONTACT_FROM_EMAIL` (must be a sender allowed by your Resend account/domain)
+   - `CONTACT_TO_EMAIL` (required recipient inbox, e.g. `infoclientify@gmail.com`)
+   - `CONTACT_FROM_EMAIL` (optional; defaults to `Triofy Contact <onboarding@resend.dev>` for testing, but use your own verified sender in production)
 3. Redeploy the site.
 
 The API route is `app/api/contact/route.ts` and sends:
-- one notification email to `CONTACT_TO_EMAIL`
-- one confirmation email back to the form submitter
+1. One notification email to `CONTACT_TO_EMAIL`.
+2. One confirmation email back to the form submitter.
 
 ## Getting Started
 
