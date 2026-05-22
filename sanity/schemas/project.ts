@@ -1,5 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
+const maxProjectYear = new Date().getFullYear() + 10
+
 export default defineType({
   name: 'project',
   title: 'Project',
@@ -104,7 +106,7 @@ export default defineType({
       name: 'year',
       title: 'Year',
       type: 'number',
-      validation: (Rule) => Rule.required().min(2000).max(2100),
+      validation: (Rule) => Rule.required().min(2000).max(maxProjectYear),
     }),
     defineField({
       name: 'publishedAt',

@@ -85,10 +85,10 @@ const projectBySlugQuery = `*[_type == "project" && slug.current == $slug && (!d
   ${projectFields}
 }`
 
-function mapProject(project: SanityProject): CaseStudy {
+function mapProject(project: SanityProject & {slug: string}): CaseStudy {
   return {
     id: project._id,
-    slug: project.slug ?? '',
+    slug: project.slug,
     title: project.title,
     client: project.client,
     category: project.category,
@@ -111,7 +111,7 @@ export async function getProjects(): Promise<CaseStudy[]> {
 
   const projects = await sanityClient.fetch<SanityProject[]>(projectsQuery)
   return projects
-    .filter((project) => Boolean(project.slug))
+    .filter((project): project is SanityProject & {slug: string} => Boolean(project.slug))
     .map(mapProject)
 }
 
