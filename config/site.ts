@@ -8,11 +8,10 @@ export const site = {
   email: "infoclientify@gmail.com",
   phone: "+92 326 2134990",
   social: {
-    twitter: "https://twitter.com/triofy",
-    linkedin: "https://linkedin.com/company/triofy",
-    instagram: "https://instagram.com/triofy",
+    gmail: "mailto:infoclientify@gmail.com",
+    instagram: "https://instagram.com/triofy.agency",
   },
   footer: {
-    copyright: "© 2025 Triofy Agency. All rights reserved.",
+    copyright: "© 2026 Triofy Agency. All rights reserved.",
   },
 } as const;

@@ -34,7 +34,7 @@ export default function Hero({ content, SceneComponent }: HeroProps) {
             className="inline-flex items-center gap-2 bg-[#F4C542]/10 border border-[#F4C542]/20 rounded-full px-4 py-2 text-[#F4C542] text-sm font-medium mb-8"
           >
             <span className="w-2 h-2 bg-[#F4C542] rounded-full animate-pulse" />
-            Now taking new clients for Q3 2025
+            Now taking new clients for Q3 2026
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
