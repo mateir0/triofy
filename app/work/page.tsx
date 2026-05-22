@@ -3,6 +3,7 @@ import { caseStudies } from "@/content/work";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
 import { createMetadata } from "@/lib/metadata";
+import { getProjects } from "@/lib/sanity-queries";
 import WorkPageClient from "./WorkPageClient";
 
 export const metadata: Metadata = createMetadata(
@@ -10,7 +11,10 @@ export const metadata: Metadata = createMetadata(
   "Explore our portfolio of brand transformations, performance marketing campaigns, and web design projects."
 );
 
-export default function WorkPage() {
+export default async function WorkPage() {
+  const sanityProjects = await getProjects();
+  const studies = sanityProjects.length > 0 ? sanityProjects : caseStudies;
+
   return (
     <>
       <SectionWrapper background="default" className="pt-32">
@@ -21,7 +25,7 @@ export default function WorkPage() {
           </p>
         </div>
       </SectionWrapper>
-      <WorkPageClient studies={caseStudies} />
+      <WorkPageClient studies={studies} />
       <SectionWrapper background="muted">
         <div className="text-center">
           <h2 className="text-3xl font-black text-white mb-4">Want Results Like These?</h2>

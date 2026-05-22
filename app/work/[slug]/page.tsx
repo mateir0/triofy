@@ -4,18 +4,23 @@ import Link from "next/link";
 import { caseStudies } from "@/content/work";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
+import { getProjectBySlug, getProjectSlugs } from "@/lib/sanity-queries";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return caseStudies.map((study) => ({ slug: study.slug }));
+  const sanitySlugs = await getProjectSlugs();
+  const localSlugs = caseStudies.map((study) => study.slug);
+  const slugs = Array.from(new Set([...localSlugs, ...sanitySlugs]));
+
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const study = caseStudies.find((s) => s.slug === slug);
+  const study = (await getProjectBySlug(slug)) ?? caseStudies.find((s) => s.slug === slug);
   if (!study) return {};
   return {
     title: `${study.title} | Triofy Agency`,
@@ -25,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CaseStudyPage({ params }: PageProps) {
   const { slug } = await params;
-  const study = caseStudies.find((s) => s.slug === slug);
+  const study = (await getProjectBySlug(slug)) ?? caseStudies.find((s) => s.slug === slug);
   if (!study) notFound();
 
   return (
