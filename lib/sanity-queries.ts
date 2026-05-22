@@ -125,7 +125,7 @@ export async function getProjectBySlug(slug: string): Promise<CaseStudy | null> 
     return null
   }
 
-  return mapProject(project)
+  return mapProject(project as SanityProject & {slug: string})
 }
 
 export async function getProjectSlugs(): Promise<string[]> {
