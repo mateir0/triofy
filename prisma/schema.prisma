@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LeadStatus {
+  new
+  contacted
+  qualified
+  proposal_sent
+  won
+  lost
+}
+
+enum LeadPriority {
+  low
+  medium
+  high
+}
+
+model Lead {
+  id              String       @id @default(uuid())
+  fullName        String
+  email           String?
+  phone           String?
+  company         String?
+  source          String?
+  status          LeadStatus   @default(new)
+  value           Int?
+  priority        LeadPriority @default(medium)
+  tags            String[]     @default([])
+  owner           String?
+  lastContactedAt DateTime?
+  nextFollowUpAt  DateTime?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  notes           LeadNote[]
+
+  @@index([status])
+  @@index([priority])
+  @@index([owner])
+  @@index([nextFollowUpAt])
+  @@index([createdAt])
+}
+
+model LeadNote {
+  id        String   @id @default(uuid())
+  leadId    String
+  body      String
+  createdAt DateTime @default(now())
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([leadId])
+  @@index([createdAt])
+}
