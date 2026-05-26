@@ -15,6 +15,59 @@ The API route is `app/api/contact/route.ts` and sends:
 1. One notification email to `CONTACT_TO_EMAIL`.
 2. One confirmation email back to the form submitter.
 
+## Internal CRM Setup (Leads)
+
+The repository includes an internal CRM at `/crm` with secret-link access and PostgreSQL persistence.
+
+### Required environment variables
+
+Set these locally in `.env.local` and in Vercel Project Settings → Environment Variables:
+
+- `DATABASE_URL` (PostgreSQL connection string)
+- `CRM_ACCESS_KEY` (shared internal secret key)
+
+### Local setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Generate Prisma client:
+   ```bash
+   npm run prisma:generate
+   ```
+3. Run Prisma migrations:
+   ```bash
+   npx prisma migrate deploy
+   ```
+4. (Optional dev seed data) populate sample leads:
+   ```bash
+   npm run db:seed
+   ```
+5. Start app:
+   ```bash
+   npm run dev
+   ```
+
+### Secret-link access flow
+
+- Share access using:
+  - `https://<your-domain>/crm?key=<CRM_ACCESS_KEY>`
+- On first successful visit, CRM sets a secure HttpOnly access cookie and redirects to the same route without `key`.
+- If key is missing or invalid, users are redirected to `/crm/access`.
+
+### Revoke access
+
+Rotate `CRM_ACCESS_KEY` (local + Vercel), redeploy, and share the new link.
+Old cookies become invalid because cookie signatures depend on the key.
+
+### CRM quick walkthrough
+
+- Dashboard: `/crm` → status summary cards + follow-up list.
+- Leads list: `/crm/leads` → search, filter, and sort leads.
+- Create lead: `/crm/leads/new`.
+- Lead detail: `/crm/leads/:id` → edit fields, update status/priority, add notes, mark contacted, delete lead.
+
 ## Getting Started
 
 First, run the development server:
