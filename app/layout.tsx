@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import { site } from "@/config/site";
 import { defaultSeo } from "@/config/seo";
+import ConditionalChrome from "@/components/layout/ConditionalChrome";
 
 export const metadata: Metadata = {
   title: { default: defaultSeo.defaultTitle, template: defaultSeo.titleTemplate },
@@ -24,9 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-[#0E1A24] text-[#F8FAFC] antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <ConditionalChrome>{children}</ConditionalChrome>
       </body>
     </html>
   );
