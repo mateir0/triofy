@@ -18,7 +18,7 @@ function fromBase64Url(base64Url: string): Uint8Array {
   const normalized = base64Url.replace(/-/g, "+").replace(/_/g, "/");
   const padding = normalized.length % 4 ? "=".repeat(4 - (normalized.length % 4)) : "";
   const binary = atob(`${normalized}${padding}`);
-  const bytes = new Uint8Array(binary.length);
+  const bytes = new Uint8Array(new ArrayBuffer(binary.length));
 
   for (let index = 0; index < binary.length; index += 1) {
     bytes[index] = binary.charCodeAt(index);
@@ -62,7 +62,14 @@ export async function verifyCrmAccessToken(token: string | undefined, secret: st
   }
 
   const key = await importSigningKey(secret);
-  return crypto.subtle.verify("HMAC", key, fromBase64Url(signature), encoder.encode(payload));
+  const signatureBytes = fromBase64Url(signature);
+
+  return crypto.subtle.verify(
+    "HMAC",
+    key,
+    signatureBytes as unknown as BufferSource,
+    encoder.encode(payload) as unknown as BufferSource
+  );
 }
 
 export async function isCrmRequestAuthorized(token: string | undefined) {

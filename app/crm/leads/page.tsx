@@ -11,25 +11,6 @@ function getValue(searchParams: SearchParamMap, key: string) {
   return Array.isArray(value) ? value[0] : value;
 }
 
-function buildQueryString(searchParams: SearchParamMap, patch: Record<string, string | undefined>) {
-  const query = new URLSearchParams();
-
-  for (const [key, raw] of Object.entries(searchParams)) {
-    const value = Array.isArray(raw) ? raw[0] : raw;
-    if (value) query.set(key, value);
-  }
-
-  for (const [key, value] of Object.entries(patch)) {
-    if (!value) {
-      query.delete(key);
-    } else {
-      query.set(key, value);
-    }
-  }
-
-  return query.toString();
-}
-
 function formatDate(value: Date | null) {
   if (!value) return "—";
   return new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(new Date(value));
